@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="157216" started-at="2017-01-19T20:33:45Z" finished-at="2017-01-19T20:36:23Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="157216" started-at="2017-01-19T20:33:45Z" finished-at="2017-01-19T20:36:23Z">
+      <class name="iaccinteg.democlass">
+        <test-method status="PASS" signature="shopflow()[pri:0, instance:iaccinteg.democlass@457e2f02]" name="shopflow" duration-ms="157184" started-at="2017-01-20T02:03:45Z" finished-at="2017-01-20T02:06:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shopflow -->
+        <test-method status="PASS" signature="closeb()[pri:0, instance:iaccinteg.democlass@457e2f02]" name="closeb" is-config="true" duration-ms="1" started-at="2017-01-20T02:06:23Z" finished-at="2017-01-20T02:06:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeb -->
+      </class> <!-- iaccinteg.democlass -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
