@@ -3,12 +3,12 @@
 <suite name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="iaccinteg.democlass">
+      <class name="iaccinteg.democlasssc">
         <methods>
-          <include name="shopflow"/>
           <include name="closeb"/>
+          <include name="shopflow"/>
         </methods>
-      </class> <!-- iaccinteg.democlass -->
+      </class> <!-- iaccinteg.democlasssc -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

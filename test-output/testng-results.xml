@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="157216" started-at="2017-01-19T20:33:45Z" finished-at="2017-01-19T20:36:23Z">
+  <suite name="Suite" duration-ms="353417" started-at="2017-02-09T13:26:58Z" finished-at="2017-02-09T13:32:51Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="157216" started-at="2017-01-19T20:33:45Z" finished-at="2017-01-19T20:36:23Z">
-      <class name="iaccinteg.democlass">
-        <test-method status="PASS" signature="shopflow()[pri:0, instance:iaccinteg.democlass@457e2f02]" name="shopflow" duration-ms="157184" started-at="2017-01-20T02:03:45Z" finished-at="2017-01-20T02:06:23Z">
+    <test name="Test" duration-ms="353417" started-at="2017-02-09T13:26:58Z" finished-at="2017-02-09T13:32:51Z">
+      <class name="iaccinteg.democlassurl">
+        <test-method status="PASS" signature="shopflow()[pri:0, instance:iaccinteg.democlassurl@f6805b]" name="shopflow" duration-ms="348689" started-at="2017-02-09T18:56:58Z" finished-at="2017-02-09T19:02:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shopflow -->
-        <test-method status="PASS" signature="closeb()[pri:0, instance:iaccinteg.democlass@457e2f02]" name="closeb" is-config="true" duration-ms="1" started-at="2017-01-20T02:06:23Z" finished-at="2017-01-20T02:06:23Z">
+        <test-method status="PASS" signature="closeb()[pri:0, instance:iaccinteg.democlassurl@f6805b]" name="closeb" is-config="true" duration-ms="4714" started-at="2017-02-09T19:02:46Z" finished-at="2017-02-09T19:02:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeb -->
-      </class> <!-- iaccinteg.democlass -->
+      </class> <!-- iaccinteg.democlassurl -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
