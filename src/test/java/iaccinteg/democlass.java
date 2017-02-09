@@ -20,7 +20,7 @@ public class democlass {
 	public void shopflow()
 	{
 		driver = new FirefoxDriver();
-		wait = new WebDriverWait(driver, 60);
+		wait = new WebDriverWait(driver, 120);
 		//System.setProperty("webdriver.chrome.driver", "/demo/lib/chromedriver.exe");
 		//WebDriver driver = new ChromeDriver();
 		
