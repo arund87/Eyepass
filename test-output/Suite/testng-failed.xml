@@ -3,12 +3,13 @@
 <suite name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="iaccinteg.democlasssc">
+      <class name="iaccinteg.democlassurl">
         <methods>
-          <include name="closeb"/>
+          <include name="excelclear"/>
           <include name="shopflow"/>
+          <include name="closeb"/>
         </methods>
-      </class> <!-- iaccinteg.democlasssc -->
+      </class> <!-- iaccinteg.democlassurl -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

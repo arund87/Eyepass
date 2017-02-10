@@ -20,7 +20,7 @@ public class democlasssc {
 	
 	public void sc(String title, String scodepg)
 	{
-		driver1.findElement(By.xpath("(//h3[@class='validation-action action-collepse'])[1]")).click();
+		driver1.findElement(By.xpath("//*[contains(text(),'Paste Text')]")).click();
 		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		driver1.findElement(By.id("html_title")).sendKeys(title);
 		driver1.findElement(By.id("html_text")).sendKeys(scodepg);
