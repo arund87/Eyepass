@@ -81,7 +81,7 @@ public class ctlextentdemoclasshtml {
 		driver1 = new FirefoxDriver();
 		wait = new WebDriverWait(driver1, 3600);
 		extent = new ExtentReports(reportpath, true);
-		test = extent.startTest("IAccess Test by URL");
+		test = extent.startTest("IAccess Test by HTML Text");
 		driver1.get("http://localhost:8080/iAccess5");
 		WebElement login = wait.until(ExpectedConditions
 				.elementToBeClickable(By.id("button_login")));
