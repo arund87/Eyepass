@@ -1,8 +1,6 @@
 package iaccinteg;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -16,23 +14,23 @@ import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
+//import org.testng.ITestResult;
+//import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class democlasssc {
+public class ctlextentdemoclassurl {
 	public WebDriver driver;
 	public ExtentReports extent;
 	public ExtentTest test;
-	public String address = "1801 CALIFORNIA ST,DENVER,CO 80202,USA ";
 	public WebDriverWait wait;
 	public String projecturltitle = "ValidateURL";
-	public String projectsctitle = "ValidateURL";
+	public String projectsctitle = "ValidateSC";
 	public WebDriver driver1;
 	public HSSFWorkbook worbk;
 	public HSSFSheet sheet1;
@@ -40,48 +38,24 @@ public class democlasssc {
 	public String Attachpath = "C:\\Users\\348027\\git\\IAccess\\src\\main\\resources\\";
 	int i = 1;
 	public String urlname1;
-	public String urlname2;
+	public String urlname2,urlname3,urlname4;
 	public String resultexcel, currentstatus;
 	public int errcount, warcount;
 	public String status = "Completed";
 	public int z = 1;
-	public String txtstore="C:\\Users\\348027\\git\\IAccess\\TextFile\\";
-	public String ps1,ps2;
-	
-	public void textfileconverter(String txtfilename,String txtfile)
-	{
-	try {
-		        File newTextFile = new File(txtstore+txtfilename+".html");
-	            FileWriter fw = new FileWriter(newTextFile);
-	            fw.write(txtfile);
-	            fw.close();
 
-	        } catch (IOException iox) {
-	            //do stuff with exception
-	            iox.printStackTrace();
-	        }
-	}
-	
-	public void url(String title, String urlname) throws Exception 
-	{
-		driver1.findElement(By.id("newValidation")).click();
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		driver1.findElement(By.xpath("//a[contains(text(),'Enter URL')]")).click();
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		driver1.findElement(By.xpath("//a[contains(text(),'Upload File')]")).click();
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		driver1.findElement(By.id("file_title")).sendKeys(title);
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		driver1.findElement(By.id("file")).click();
+	public void url(String title, String urlname) throws Exception {
+		driver1.findElement(By.id("title")).sendKeys(title);
+		driver1.findElement(By.id("url_0")).sendKeys(urlname);
+		//driver1.findElement(By.id("chk_compl_site")).click();
+		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver1.findElement(By.id("chk_lvlaa_url")).click();
+		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Thread.sleep(3000);
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		Runtime.getRuntime().exec("C:\\Users\\348027\\git\\IAccess\\autoit\\fileupload.exe"+" "+urlname);
-		Thread.sleep(3000);
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		driver1.findElement(By.id("chk_lvlaaa_file")).click();
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		driver1.findElement(By.id("button_file_upload_test")).click();
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);		
+		driver1.findElement(By.id("button_url_test")).click();
+		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		test.log(LogStatus.PASS, "IAccess Test ran for the page: " + title);
+		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 
 	// Method for Screenshots
@@ -123,7 +97,7 @@ public class democlasssc {
 		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		driver1.findElement(
 				By.xpath("//*[contains(text(),'Project Name: ValidateURL')]"))
-				.isDisplayed();
+				.isDisplayed();   
 
 		driver = new FirefoxDriver();
 		wait = new WebDriverWait(driver, 3600);
@@ -134,158 +108,90 @@ public class democlasssc {
 		driver.get("http://www.centurylink.com/home/");
 		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		test.log(LogStatus.PASS, "Century Link home page launched");
+		urlname1 = driver.getCurrentUrl();
 		
-		ps1=driver.getPageSource();
-		textfileconverter("Home" ,ps1 );
-		
-		test.log(LogStatus.PASS, "CTL Homepage PS Passed to IAccess");
-
 		driver.findElement(By.partialLinkText("Bundles")).click();
+		test.log(LogStatus.PASS, "Navigated to Bundles");
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		WebElement element = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.id("bundles-order-now")));
-		
-		ps2=driver.getPageSource();
-		textfileconverter("Bundles" ,ps2 );
-		
-		test.log(LogStatus.PASS, "CTL Bundles PS Passed to IAccess");
 		element.isDisplayed();
-		
-		/*Click on Order Online and Check Availability- Select customer info
-		element.click();
-		WebElement element1 = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//div[contains(text(),'Check Availability')]")));
-		element1.isDisplayed();
-
-		
-		 * driver.findElement(By.id("ctam_nc-sfaddress")).sendKeys(address);
-		 * driver.findElement(By.id("ctam_nc-go")).click(); WebElement
-		 * element2=wait
-		 * .until(ExpectedConditions.visibilityOfElementLocated(By.id
-		 * ("addressid3"))); WebElement
-		 * element3=wait.until(ExpectedConditions.visibilityOfElementLocated
-		 * (By.id("submitSecUnit"))); element2.click(); element3.click();
-		 * driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * //Customize Bundle WebElement
-		 * element4=wait.until(ExpectedConditions.visibilityOfElementLocated
-		 * (By.id("customize_HsiPlusHpu3YrOfferPGOQU"))); element4.click();
-		 * 
-		 * WebElement
-		 * check1=wait.until(ExpectedConditions.visibilityOfElementLocated
-		 * (By.xpath("//*[contains(text(),'Summary')]"))); WebElement
-		 * check2=wait
-		 * .until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-		 * ("//*[contains(text(),'Adjusted Monthly Total:')]")));
-		 * check1.isDisplayed(); check2.isDisplayed();
-		 * 
-		 * WebElement
-		 * element5=wait.until(ExpectedConditions.elementToBeClickable
-		 * (By.xpath("//*[contains(text(),'Next')]"))); element5.click();
-		 * 
-		 * WebElement
-		 * element6=wait.until(ExpectedConditions.visibilityOfElementLocated
-		 * (By.xpath("//span[contains(text(),'Contact Information')]")));
-		 * element6.isDisplayed();
-		 * 
-		 * driver.findElement(By.id("contactinfo.firstname")).sendKeys("Benten");
-		 * driver
-		 * .findElement(By.id("contactinfo.lastname")).sendKeys("Christoper");
-		 * driver.findElement(By.id("contactinfo.emailaddr")).sendKeys(
-		 * "bentenchristoper@gmail.com");
-		 * driver.findElement(By.id("contactinfo.emailconfirm"
-		 * )).sendKeys("bentenchristoper@gmail.com");
-		 * driver.findElement(By.id("contactinfo.contactnum"
-		 * )).sendKeys("8669744574");
-		 * driver.findElement(By.id("contactinfo.dobMonth")).sendKeys("07");
-		 * driver.findElement(By.id("contactinfo.dobDay")).sendKeys("20");
-		 * driver.findElement(By.id("contactinfo.dobYear")).sendKeys("1989");
-		 * driver.findElement(By.id("phonenum.phone1")).click();
-		 * driver.findElement
-		 * (By.xpath("//input[@value='Place My Order Securely']"
-		 * )).isDisplayed(); driver.manage().timeouts().implicitlyWait(2,
-		 * TimeUnit.SECONDS);
-		 */
+		urlname2 = driver.getCurrentUrl();
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		driver.quit();
-		test.log(LogStatus.PASS, "Closing the CTL shopping browser");
-		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		
-		url("Home", "C:\\Users\\348027\\git\\IAccess\\TextFile\\Home.html");
-		test.log(LogStatus.PASS, "CTL Homepage URL Passed to IAccess");
-		Thread.sleep(120000);
+		test.log(LogStatus.PASS, "CTL Homepage URL Passed to IAccess");		
+		url("Home", urlname1);
+		Thread.sleep(60000);
 		
-		url("Bundles", "C:\\Users\\348027\\git\\IAccess\\TextFile\\Bundles.html");
 		test.log(LogStatus.PASS, "CTL Bundles URL Passed to IAccess");
-		Thread.sleep(120000);
+		url("Bundles", urlname2);
+		Thread.sleep(60000);
 		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		
+		/*
 		driver1.findElement(By.xpath("//a[@id='newValidation']")).click();
 		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		driver1.findElement(By.xpath("//a[@id='achivedResults']")).click();
 		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		*/
 		
-		/*
 		do {
-			Thread.sleep(5000);
+			Thread.sleep(60000);
 			driver1.findElement(By.xpath("//a[@id='newValidation']")).click();
 			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			driver1.findElement(By.xpath("//a[@id='achivedResults']")).click();
 			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			currentstatus = driver1.findElement(By.xpath("html/body/section/table/tbody/tr[2]/td[5]")).getText().trim();
-		}while(status!=currentstatus);*/
-
+			System.out.println(currentstatus);
+		}while(status==currentstatus);
+		
 		driver1.findElement(By.xpath("html/body/section/table/tbody/tr[2]/td[6]/a")).click();
 		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		// WebElement
-		// validation=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Validation Summary')]")));
-		// validation.isDisplayed();
-        System.out.println(driver1.findElement(By.xpath("//*[@class='fail']")).getText());
-        
+		        
 		if ("Fail".equalsIgnoreCase(driver1.findElement(By.xpath("//*[@class='fail']")).getText())) {
 			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			String errror=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[4]/td[3]")).getText();
 			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			String warrning=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[4]/td[4]")).getText();
-			captureScreenshot(driver1, "HomePage");
-			String image = test.addScreenCapture(Attachpath+"HomePage"+".jpg");
-			test.log(LogStatus.FAIL,"Homepage Error: "+errror+" Warning: "+warrning);
-			test.log(LogStatus.FAIL,"HomePage", image);
+			captureScreenshot(driver1, "Home");
+			String image = test.addScreenCapture(Attachpath+"Home"+".jpg");
+			test.log(LogStatus.FAIL,"Accessibility test result for HomePage=> Error: "+errror+" Warning: "+warrning);
+			test.log(LogStatus.FAIL,"Home", image);
 			Thread.sleep(5000);
 
 		} else {
-			captureScreenshot(driver1, "HomePage");
-			String image = test.addScreenCapture(Attachpath+"HomePage"+".jpg");
-			test.log(LogStatus.PASS, "HomePage", image);
+			captureScreenshot(driver1, "Home");
+			String image = test.addScreenCapture(Attachpath+"Home"+".jpg");
+			test.log(LogStatus.PASS, "Home", image);
 			Thread.sleep(5000);
 		}
 		  
+		/*
 		driver1.findElement(By.xpath("//a[@id='newValidation']")).click();
 		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		driver1.findElement(By.xpath("//a[@id='achivedResults']")).click();
-		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		/*
+		driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);*/
+		
 		do {
-			Thread.sleep(5000);
+			Thread.sleep(60000);
 			driver1.findElement(By.xpath("//a[@id='newValidation']")).click();
 			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			driver1.findElement(By.xpath("//a[@id='achivedResults']")).click();
 			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			currentstatus = driver1.findElement(By.xpath("html/body/section/table/tbody/tr[1]/td[5]")).getText().trim();
-		}while(status!=currentstatus);*/
+			System.out.println(currentstatus);
+		}while(status==currentstatus);
 
 		driver1.findElement(By.xpath("html/body/section/table/tbody/tr[1]/td[6]/a")).click();
 		if ("Fail".equalsIgnoreCase(driver1.findElement(By.xpath("//*[@class='fail']")).getText())) {
+			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+			String errror=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[4]/td[3]")).getText();
+			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+			String warrning=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[4]/td[4]")).getText();
 			captureScreenshot(driver1, "Bundles");
 			String image = test.addScreenCapture(Attachpath+"Bundles"+".jpg");
-			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-			String errror1=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[4]/td[3]")).getText();
-			driver1.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-			String warrning1=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[4]/td[4]")).getText();
-			test.log(LogStatus.FAIL,"Bundles Error: "+errror1+" Warning: "+warrning1);
-			test.log(LogStatus.FAIL, "Bundles", image);
+			test.log(LogStatus.FAIL,"Accessibility test result for Bundles=> Error: "+errror+" Warning: "+warrning);
+			test.log(LogStatus.FAIL,"Bundles", image);
 			Thread.sleep(5000);
 		} else {
 			captureScreenshot(driver1, "Bundles");
@@ -293,12 +199,16 @@ public class democlasssc {
 			test.log(LogStatus.PASS, "Bundles", image);
 			Thread.sleep(5000);
 		}
-
-		driver1.get("C:\\Users\\348027\\git\\IAccess\\src\\main\\resources\\Result.html");
+		
+		
+		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+		Thread.sleep(6000);
 		extent.endTest(test);
 		extent.flush();
+		driver1.get("C:\\Users\\348027\\git\\IAccess\\src\\main\\resources\\Result.html");
+		
 	}
-
+/*
 	@AfterMethod
 	public void tearDown(ITestResult result) throws InterruptedException {
 		if (ITestResult.FAILURE == result.getStatus()) {
@@ -310,5 +220,5 @@ public class democlasssc {
 		}
 		extent.endTest(test);
 		extent.flush();
-	}
+	}*/
 }

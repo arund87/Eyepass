@@ -33,6 +33,7 @@ public class democlassurl {
 	public String urlname2;
 	public String resultexcel,currentstatus; public int errcount,warcount;
 	public String status="Completed";
+	public int z=1;
 	
 	public void url(String title, String urlname)
 	{
@@ -169,20 +170,22 @@ public class democlassurl {
 	@AfterTest
 	public void closeb() throws Exception
 	{
-		driver.quit();
-		
+		driver.quit();	
 		driver1.findElement(By.id("achivedResults")).click();
 		
 		do{
 			Thread.sleep(10000);
+			z=z+1;
 			driver1.findElement(By.id("achivedResults")).click();
 			currentstatus=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[2]/td[5]")).getText().trim();
 			
-		}while(status!=currentstatus);
+		}while(12!=z);
+		
+		//while(status!=currentstatus);
 		
 		driver1.findElement(By.xpath("html/body/section/table/tbody/tr[2]/td[6]/a")).click();
-		WebElement validation=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Validation Summary')]")));
-		validation.isDisplayed();
+		//WebElement validation=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Validation Summary')]")));
+		//validation.isDisplayed();
 		
 		if("Fail".equalsIgnoreCase(driver1.findElement(By.xpath("//*[@class='fail']")).getText()))
 		{
@@ -190,36 +193,40 @@ public class democlassurl {
 		}else{
 			resultexcel="Pass";
 		}
-	    int ea =errorcounter("html/body/section/table/tbody/tr/td[3]",0);
-	    int	wa= warningcounter("html/body/section/table/tbody/tr/td[4]",0);
+	   // int ea =errorcounter("html/body/section/table/tbody/tr/td[3]",0);
+	   // int	wa= warningcounter("html/body/section/table/tbody/tr/td[4]",0);
 		
-		excelupdate("Home",urlname1,resultexcel,ea,wa);
+		excelupdate("Home",urlname1,resultexcel);
 		
-		
+		z=1;
 		do{
 			Thread.sleep(10000);
+			z=z+1;
 			driver1.findElement(By.id("achivedResults")).click();
 			currentstatus=driver1.findElement(By.xpath("html/body/section/table/tbody/tr[1]/td[5]")).getText().trim();
-		}while(status!=currentstatus);
+		}while(6!=z);
+		
+		//while(status!=currentstatus);
 		
 		driver1.findElement(By.xpath("html/body/section/table/tbody/tr[1]/td[6]/a")).click();
-		WebElement validation1=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Validation Summary')]")));
-		validation1.isDisplayed();
+		//WebElement validation1=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Validation Summary')]")));
+		//validation1.isDisplayed();
 		if("Fail".equalsIgnoreCase(driver1.findElement(By.xpath("//*[@class='fail']")).getText()))
 		{
 			resultexcel="Fail";
 		}else{
 			resultexcel="Pass";
 		}
-		 int eb =errorcounter("html/body/section/table/tbody/tr/td[3]",0);
-		    int	wb= warningcounter("html/body/section/table/tbody/tr/td[4]",0);
+		   //int eb =errorcounter("html/body/section/table/tbody/tr/td[3]",0);
+		  //int	wb= warningcounter("html/body/section/table/tbody/tr/td[4]",0);
+		  //excelupdate("Bundles",urlname2,resultexcel,eb,wb);
 			
-			excelupdate("Bundles",urlname2,resultexcel,eb,wb);
+			excelupdate("Bundles",urlname2,resultexcel);
 			Thread.sleep(3000);
-			Runtime.getRuntime().exec("C:\\Users\\348027\\git\\IAccess\\src\\main\\resources\\openexcel.bat");
+			//Runtime.getRuntime().exec("C:\\Users\\348027\\git\\IAccess\\src\\main\\resources\\openexcel.bat");
 	}
 	
-	public void excelupdate(String title,String url,String result,int error,int warning) throws Exception
+	public void excelupdate(String title,String url,String result) throws Exception
 	{
 		//Getting the values from Excel
 				try {
@@ -234,8 +241,8 @@ public class democlassurl {
 					sheet1.getRow(i).createCell(0).setCellValue(title);
 					sheet1.getRow(i).createCell(1).setCellValue(url);
 					sheet1.getRow(i).createCell(2).setCellValue(result);
-					sheet1.getRow(i).createCell(3).setCellValue(error);
-					sheet1.getRow(i).createCell(4).setCellValue(warning);
+					//sheet1.getRow(i).createCell(3).setCellValue(error);
+					//sheet1.getRow(i).createCell(4).setCellValue(warning);
 					
 					try {
 						   FileOutputStream fout =new FileOutputStream(path);    
@@ -251,7 +258,7 @@ public class democlassurl {
 	
 	public int errorcounter(String pathelement, int errcount)
 	{
-		List<WebElement> errorlist=driver.findElements(By.xpath(pathelement));
+		List<WebElement> errorlist=driver1.findElements(By.xpath(pathelement));
 		int size=errorlist.size();
 		for(int j=1;j<size;j++)
 		{
@@ -264,7 +271,7 @@ public class democlassurl {
 	
 	public int warningcounter(String pathelement1, int warcount)
 	{
-		List<WebElement> errorlist=driver.findElements(By.xpath(pathelement1));
+		List<WebElement> errorlist=driver1.findElements(By.xpath(pathelement1));
 		int size=errorlist.size();
 		for(int j=1;j<size;j++)
 		{

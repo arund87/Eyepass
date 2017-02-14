@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 10 19:48:52 IST 2017</td>
+<td>Started on:</td><td>Sun Feb 12 15:40:07 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>1221 seconds (1221499 ms)</td>
+<tr><td>Total time:</td><td>256 seconds (256362 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,37 +76,13 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='iaccinteg.democlassurl.closeb()'><b>closeb</b><br>Test class: iaccinteg.democlassurl</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: Element is not clickable at point (399.04998779296875, 73). Other element would receive the click: &lt;div style=&quot;display: block;&quot; id=&quot;overlay_about&quot;&gt;&lt;/div&gt;
-Command duration or timeout: 172 milliseconds
-Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
-System info: host: &apos;01HW510223&apos;, ip: &apos;157.227.151.27&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;x86&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_51&apos;
-Session ID: 6dc0faa1-0ca7-4e87-bca6-d1f546f149f5
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=46.0}]
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at iaccinteg.democlassurl.closeb(democlassurl.java:178)
-... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace12609439", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace12609439'><pre>org.openqa.selenium.WebDriverException: Element is not clickable at point (399.04998779296875, 73). Other element would receive the click: &lt;div style=&quot;display: block;&quot; id=&quot;overlay_about&quot;&gt;&lt;/div&gt;
-Command duration or timeout: 172 milliseconds
-Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
-System info: host: &apos;01HW510223&apos;, ip: &apos;157.227.151.27&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;x86&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_51&apos;
-Session ID: 6dc0faa1-0ca7-4e87-bca6-d1f546f149f5
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=46.0}]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at iaccinteg.democlassurl.closeb(democlassurl.java:178)
+<td><div><pre>java.lang.NullPointerException
+	at iaccinteg.democlassurl.excelupdate(democlassurl.java:241)
+	at iaccinteg.democlassurl.closeb(democlassurl.java:199)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace31027416", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace31027416'><pre>java.lang.NullPointerException
+	at iaccinteg.democlassurl.excelupdate(democlassurl.java:241)
+	at iaccinteg.democlassurl.closeb(democlassurl.java:199)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -143,8 +119,8 @@ Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cs
 <tr>
 <td title='iaccinteg.democlassurl.shopflow()'><b>shopflow</b><br>Test class: iaccinteg.democlassurl</td>
 <td></td>
-<td>114</td>
-<td>iaccinteg.democlassurl@49cca1</td></tr>
+<td>126</td>
+<td>iaccinteg.democlassurl@abf44b</td></tr>
 </table><p>
 </body>
 </html>
