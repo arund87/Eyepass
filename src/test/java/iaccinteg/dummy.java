@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -26,9 +27,15 @@ public class dummy {
 		wait = new WebDriverWait(driver, 3600);
 		driver.get("http://www.centurylink.com/home/");
 		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		String ps1=driver.getPageSource();
-		driver.close();
 		
+		new Actions(driver).sendKeys(Keys.chord(Keys.CONTROL, "s")).perform();
+		Thread.sleep(3000);
+		Runtime.getRuntime().exec("C:\\Users\\348027\\Desktop\\newscript2.exe"+" "+"home.html");
+		Thread.sleep(3000);
+			
+		//		String ps1=driver.getPageSource();
+		driver.close();
+		/*
 		driver1 = new FirefoxDriver();
 		wait = new WebDriverWait(driver1, 3600);
 		
@@ -75,7 +82,7 @@ public class dummy {
 		driver1.findElement(By.id("button_code_test")).click();
 		driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);		
 		
-		
+		*/
 	}
 
 }

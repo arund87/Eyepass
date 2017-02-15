@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="342178" started-at="2017-02-14T13:38:16Z" finished-at="2017-02-14T13:43:58Z">
+  <suite name="Default suite" duration-ms="455426" started-at="2017-02-15T11:20:12Z" finished-at="2017-02-15T11:27:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="342178" started-at="2017-02-14T13:38:16Z" finished-at="2017-02-14T13:43:58Z">
-      <class name="iaccinteg.ctlextentdemoclassurl">
-        <test-method status="PASS" signature="shopflow()[pri:0, instance:iaccinteg.ctlextentdemoclassurl@6db468]" name="shopflow" duration-ms="342172" started-at="2017-02-14T19:08:16Z" finished-at="2017-02-14T19:13:58Z">
+    <test name="Default test" duration-ms="455426" started-at="2017-02-15T11:20:12Z" finished-at="2017-02-15T11:27:47Z">
+      <class name="iaccinteg.ctlextentdemoclasshtmlupload">
+        <test-method status="PASS" signature="shopflow()[pri:0, instance:iaccinteg.ctlextentdemoclasshtmlupload@4734b7]" name="shopflow" duration-ms="455379" started-at="2017-02-15T16:50:12Z" finished-at="2017-02-15T16:57:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shopflow -->
-      </class> <!-- iaccinteg.ctlextentdemoclassurl -->
+      </class> <!-- iaccinteg.ctlextentdemoclasshtmlupload -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

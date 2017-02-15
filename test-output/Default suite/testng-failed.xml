@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="iaccinteg.dummy">
+      <class name="iaccinteg.ctlextentdemoclasshtmlupload">
         <methods>
-          <include name="test1"/>
+          <include name="shopflow"/>
         </methods>
-      </class> <!-- iaccinteg.dummy -->
+      </class> <!-- iaccinteg.ctlextentdemoclasshtmlupload -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
